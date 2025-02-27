@@ -19,7 +19,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen bg-blue-500 text-white overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center h-screen bg-orange-50 text-white overflow-hidden">
       {/* Background Clouds */}
       <div className="absolute top-10 left-10 w-32 h-32 bg-gray-700 rounded-full opacity-10 blur-2xl"></div>
       <div className="absolute top-20 right-20 w-40 h-40 bg-gray-700 rounded-full opacity-10 blur-2xl"></div>
@@ -48,10 +48,10 @@ const Home: React.FC = () => {
       {!isLoading && (
         <div className="flex justify-start items-start h-screen p-8 animate__animated animate__fadeInLeft">
           <div className="text-left">
-            <h1 className="text-3xl font-semibold text-start mb-1 animate__animated animate__fadeInLeft animate__delay-1s">
+            <h1 className="text-3xl  text-blue-800 font-semibold text-start mb-1 animate__animated animate__fadeInLeft animate__delay-1s">
               Welcome to Nexus Bank App!
             </h1>
-            <p className="text-gray-300 mb-2 p-3 animate__animated animate__fadeInLeft animate__delay-2s">
+            <p className="text-black mb-2 p-3 animate__animated animate__fadeInLeft animate__delay-2s">
               A leading financial institution offering a wide range of banking services.
             </p>
             {/* Slider Placeholder */}
