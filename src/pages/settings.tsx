@@ -10,11 +10,11 @@ const SettingsPage = () => {
   const handleLogout = () => {
     setIsLoading(true);
     setTimeout(() => {
+      sessionStorage.clear(); // Clear session storage
       setIsLoading(false);
       navigate('/');
     }, 2000);
   };
-
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">

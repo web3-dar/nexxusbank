@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoMdWarning } from "react-icons/io";
 import img from "../assets/person_1.jpg";
@@ -6,30 +6,36 @@ import img from "../assets/person_1.jpg";
 const Confirmation: React.FC = () => {
   const [pin, setPin] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false); // Loading state
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const validPin = "2519"; // Hardcoded valid PIN
-  const userName = "David Marin"; // Replace with dynamic user name if needed
-  const userImage = img; // Replace with the user's profile picture URL
+  const validPin = "2519";
+  const userName = "David Marin";
+
+  useEffect(() => {
+    // Redirect if already logged in
+    if (sessionStorage.getItem("isLoggedIn")) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length <= 4) {
-      setPin(e.target.value); // Restrict input to 4 digits
+      setPin(e.target.value);
     }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (pin === validPin) {
-      setIsLoading(true); // Show loading screen
+      setIsLoading(true);
       setTimeout(() => {
-        setIsLoading(false); // Hide loading screen after 5 seconds
-        navigate("/dashboard"); // Navigate to the dashboard
-      }, 5000);
+        sessionStorage.setItem("isLoggedIn", "true"); // Set logged-in session
+        navigate("/dashboard");
+      }, 3000);
     } else {
       setErrorMessage("Incorrect PIN. Please try again.");
-      setTimeout(() => setErrorMessage(null), 3000); // Clear the error message after 3 seconds
+      setTimeout(() => setErrorMessage(null), 3000);
     }
   };
 
@@ -42,17 +48,14 @@ const Confirmation: React.FC = () => {
         </div>
       ) : (
         <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md text-center">
-          {/* User Image */}
           <img
-            src={userImage}
+            src={img}
             alt="User Profile"
             className="w-20 h-20 rounded-full mx-auto mb-4"
           />
-          {/* User Name */}
           <h1 className="text-xl font-bold text-black mb-2">{userName}</h1>
           <p className="text-gray-500 mb-6">Please confirm your PIN to proceed</p>
 
-          {/* PIN Input Form */}
           <form onSubmit={handleSubmit} className="mb-4">
             <div className="flex justify-center items-center space-x-2 mb-4">
               <input
@@ -65,12 +68,9 @@ const Confirmation: React.FC = () => {
               />
             </div>
 
-            {/* Error Message */}
             {errorMessage && (
               <div className="flex items-center justify-center text-red-500 mb-4">
-                <div className="text-lg mr-2">
-                  <IoMdWarning />
-                </div>
+                <IoMdWarning className="text-lg mr-2" />
                 <p>{errorMessage}</p>
               </div>
             )}
@@ -83,19 +83,12 @@ const Confirmation: React.FC = () => {
             </button>
           </form>
 
-          {/* Reset or Create PIN */}
           <div className="text-sm">
             <p>
-              Forgot PIN?{" "}
-              <span className="text-orange-500 font-semibold cursor-pointer">
-                Reset PIN
-              </span>
+              Forgot PIN? <span className="text-orange-500 font-semibold cursor-pointer">Reset PIN</span>
             </p>
             <p>
-              Don’t have a PIN?{" "}
-              <span className="text-orange-500 font-semibold cursor-pointer">
-                Create PIN
-              </span>
+              Don’t have a PIN? <span className="text-orange-500 font-semibold cursor-pointer">Create PIN</span>
             </p>
           </div>
         </div>

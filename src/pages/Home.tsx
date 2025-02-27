@@ -19,7 +19,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen bg-[#0a043c] text-white overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center h-screen bg-blue-500 text-white overflow-hidden">
       {/* Background Clouds */}
       <div className="absolute top-10 left-10 w-32 h-32 bg-gray-700 rounded-full opacity-10 blur-2xl"></div>
       <div className="absolute top-20 right-20 w-40 h-40 bg-gray-700 rounded-full opacity-10 blur-2xl"></div>
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
             {/* Get Started Button */}
             <button
               onClick={handleGetStarted}
-              className="bg-[#fcb69f] text-[#0a043c] font-semibold px-9 py-3 rounded-lg shadow-md hover:bg-[#f89c88] transition animate__animated animate__fadeInLeft animate__delay-3s"
+              className="bg-black text-[#fff] font-semibold px-9 py-3 rounded-lg shadow-md hover:bg-[#fff] hover:border-2 hover:text-black transition animate__animated animate__fadeInLeft animate__delay-3s"
             >
               Get Started
             </button>
