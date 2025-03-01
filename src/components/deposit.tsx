@@ -36,7 +36,7 @@ const formatDate = (date: Date) => {
                 <p className="text-sm text-gray-500">Jan 1 2020 - {currentDate}</p>
               </div>
             </div>
-            <button className="text-red-500 font-medium">Withdrawal →</button>
+            <button className="text-green-500 font-medium">Deposited →</button>
           </div>
         </div>
 

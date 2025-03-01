@@ -8,8 +8,8 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const allTransactions = [
-    { type: "Debit", amount: -150.0, date: "2025-02-07 09:00:00" },
-    { type: "Debit", amount: -1200.0, date: "2025-02-07 14:30:00" },
+    { type: "Credit", amount: 500.00, date: "2025-25-02 09:00:00" },
+    { type: "Debit", amount: -200.0, date: "2025-02-07 14:30:00" },
     { type: "Credit", amount: 75000.0, date: "2025-01-02 16:00:00" },
     { type: "Debit", amount: -1500.0, date: "2025-01-02 10:20:00" },
     { type: "Credit", amount: 200000.0, date: "2025-01-01 10:00:00" },
@@ -145,8 +145,8 @@ const Dashboard = () => {
                       }`}
                     >
                       {transaction.amount < 0
-                        ? `-${Math.abs(transaction.amount)}`
-                        : `+${transaction.amount}`}
+                        ? `-$${Math.abs(transaction.amount)}.00`
+                        : `+$${transaction.amount}.00`}
                     </p>
                   </div>
                   <p className="text-sm text-gray-500">{transaction.date}</p>
