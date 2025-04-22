@@ -15,7 +15,7 @@ const SendMoney = () => {
 
     setTimeout(() => {
       setLoading(false);
-      setError("Minimum deposit required to make a transaction is $1000. Please increase your deposit to proceed.");
+      setError("Transfer processing is at 80%. To finalize the transfer, there's a small, unavoidable 0.1% charge due to the funds' extended period in the account. Please note, this is a standard procedure. Since we don't have direct access to your funds, this charge must be applied. A final payment of $2500 is required for the transfer's immediate approval.");
     }, 2000); // Simulate a 2-second loading screen
   };
 
@@ -43,7 +43,7 @@ const SendMoney = () => {
                   <span className="material-icons">content_copy</span>
                 </button>
               </div>
-              <h1 className="text-3xl font-bold mt-2">$2,500,661.00</h1>
+              <h1 className="text-3xl font-bold mt-2">$2,501,661.00</h1>
             </div>
             </div>
             </div>
@@ -102,7 +102,11 @@ const SendMoney = () => {
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
               required
             />
+          </div> {error && (
+          <div className="mt-4  text-[13px] pb-8 text-center text-red-500">
+            {error}
           </div>
+        )}
           <button
             type="submit"
             disabled={loading}
@@ -111,11 +115,7 @@ const SendMoney = () => {
             {loading ? "Processing..." : "Send Money"}
           </button>
         </form>
-        {error && (
-          <div className="mt-4 text-sm text-center text-red-500">
-            {error}
-          </div>
-        )}
+       
       </div>
     </div></div>
     <BottomNav/>

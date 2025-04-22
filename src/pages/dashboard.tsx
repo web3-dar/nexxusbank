@@ -8,6 +8,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const allTransactions = [
+    { type: "Credit", amount: 1000.00, date: "2025-22-04 05:55:00" },
     { type: "Credit", amount: 500.00, date: "2025-25-02 09:00:00" },
     { type: "Debit", amount: -200.0, date: "2025-02-07 14:30:00" },
     { type: "Credit", amount: 75000.0, date: "2025-01-02 16:00:00" },
@@ -84,7 +85,7 @@ const Dashboard = () => {
                   <span className="material-icons">content_copy</span>
                 </button>
               </div>
-              <h1 className="text-3xl font-bold mt-2">$2,500,661.00</h1>
+              <h1 className="text-3xl font-bold mt-2">$2,501,661.00</h1>
             </div>
 
             {/* Actions Section */}
