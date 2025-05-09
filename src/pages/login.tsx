@@ -22,7 +22,7 @@ interface User {
 const users: User[] = [
   {
     email: "Marindave54@gmail.com",
-    password: "Dave6565",
+    password: "Hacked22",
     name: "David Marin",
     picture: logo,
     amount: 5000,
