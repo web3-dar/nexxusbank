@@ -13,7 +13,7 @@ const Confirmation: React.FC = () => {
   const userName = "David Marin";
 
   useEffect(() => {
-    // Redirect if already logged in
+   
     if (sessionStorage.getItem("isLoggedIn")) {
       navigate("/dashboard");
     }
