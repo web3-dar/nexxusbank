@@ -30,7 +30,7 @@ const users: User[] = [
   {
     email: "example2@gmail.com",
     password: "ExamplePass2$",
-    name: "John Doe",
+    name: "John Do",
     picture: logo,
     amount: 3000,
   },
