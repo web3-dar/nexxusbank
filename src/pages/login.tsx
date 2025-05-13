@@ -168,7 +168,7 @@ const LoginForm: React.FC = () => {
                 onClick={handleFormToggle}
                 className="text-orange-500 font-semibold cursor-pointer"
               >
-                {isLogin ? "Register now" : "Sign in"}
+                {isLogin ? "Register now" : "Login"}
               </span>
             </p>
           </div>
